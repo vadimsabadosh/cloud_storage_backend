@@ -1,8 +1,8 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
-import { CreateUserDto } from 'src/users/dto/create-user.dto';
-import { UsersService } from 'src/users/users.service';
+import { CreateUserDto } from '../../../../../learning-dashboard/backend/src/users/dto/create-user.dto';
+import { UsersService } from '../../../../../learning-dashboard/backend/src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import { UserEntity } from 'src/users/entities/user.entity';
+import { UserEntity } from '../../../../../learning-dashboard/backend/src/users/entities/user.entity';
 
 @Injectable()
 export class AuthService {

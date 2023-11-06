@@ -1,6 +1,6 @@
 import { Request, Post, UseGuards, Controller, Body } from '@nestjs/common';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
-import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { CreateUserDto } from '../../../../../learning-dashboard/backend/src/users/dto/create-user.dto';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local.guard';
 

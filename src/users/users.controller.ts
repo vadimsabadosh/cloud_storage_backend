@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { UserId } from 'src/auth/decorators/user-id.decorator';
+import { JwtAuthGuard } from '../../../../react/full_next-nest-cloud-storage/backend/src/auth/guards/jwt-auth.guard';
+import { UserId } from '../../../../react/full_next-nest-cloud-storage/backend/src/auth/decorators/user-id.decorator';
 
 @Controller('users')
 @ApiTags('users')
@@ -22,6 +22,8 @@ export class UsersController {
   @Get('/me')
   @UseGuards(JwtAuthGuard)
   async getMe(@UserId() id: number) {
-    return this.usersService.findById(id);
+    const user = await this.usersService.findById(id);
+    const { password, ...result } = user;
+    return result;
   }
 }
